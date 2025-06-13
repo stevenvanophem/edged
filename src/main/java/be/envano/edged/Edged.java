@@ -7,6 +7,8 @@ import javax.swing.text.DefaultCaret;
 
 public class Edged {
 
+    private static final String PROMPT = "edged: ";
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new Edged().createAndShowGUI());
     }
@@ -15,8 +17,9 @@ public class Edged {
         JTextArea textArea = new JTextArea();
         textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
         textArea.setBackground(Color.BLACK);
-        textArea.setForeground(Color.GREEN);
-        textArea.setCaretColor(Color.GREEN);
+        textArea.setForeground(Color.WHITE);
+        textArea.setCaretColor(Color.WHITE);
+        textArea.setText(PROMPT);
 
         DefaultCaret caret = (DefaultCaret) textArea.getCaret();
         caret.setBlinkRate(500); // blink every 500 ms
