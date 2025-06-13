@@ -1,0 +1,22 @@
+# Maven
+target/
+
+# IntelliJ
+.idea/*
+!.idea/runConfigurations
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# Misc
+_tmp
+html-template
+libs
+utf8
+velocity.log
+
+**/application-secrets.properties
+**/secrets.properties
