@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Command {
 
     private final List<String> inputs = new ArrayList<>();
-    private final List<Action> actions = new ArrayList<>();
+    private final List<PredefinedAction> actions = new ArrayList<>();
 
     public Command(String input) {
         Objects.requireNonNull(input);
@@ -22,10 +22,25 @@ public class Command {
         return new Command(input);
     }
 
-    public Command perform(Action action) {
+    public Command perform(PredefinedAction action) {
         Objects.requireNonNull(action);
         this.actions.add(action);
         return this;
+    }
+
+    Definitions definitions() {
+        return new Definitions(inputs, actions);
+    }
+
+    record Definitions(List<String> inputs, List<PredefinedAction> actions) {
+
+        Definitions {
+            Objects.requireNonNull(inputs);
+            Objects.requireNonNull(actions);
+            inputs = List.copyOf(inputs);
+            actions = List.copyOf(actions);
+        }
+
     }
 
 }

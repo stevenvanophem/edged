@@ -18,4 +18,17 @@ public class Edged {
         return this;
     }
 
+    Definitions definitions() {
+        return new Definitions(commands);
+    }
+
+    record Definitions(List<Command> commands) {
+
+        Definitions {
+            Objects.requireNonNull(commands);
+            commands = List.copyOf(commands);
+        }
+
+    }
+
 }

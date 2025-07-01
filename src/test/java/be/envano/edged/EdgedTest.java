@@ -1,19 +1,31 @@
 package be.envano.edged;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.sun.jdi.PathSearchingVirtualMachine;
+
 class EdgedTest {
+
+    public static void main(String[] args) {
+        Edged edged = Edged.of()
+          .command(
+            Command.on("quit").perform(PredefinedAction.CLOSE_WINDOW)
+          );
+
+        new TuiLauncher(edged);
+
+    }
 
     @Test
     @DisplayName("I can create a edged thing")
     void testCreateEdged() {
-        Edged.of()
+        Edged edged = Edged.of()
           .command(
-            Command.on("quit").perform(Action.CLOSE_WINDOW)
+            Command.on("quit").perform(PredefinedAction.CLOSE_WINDOW)
           );
+
+        new TuiLauncher(edged);
 
     }
 

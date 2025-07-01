@@ -1,6 +1,6 @@
 package be.envano.edged;
 
-public enum Action {
+public enum PredefinedAction {
 
     CLOSE_WINDOW
 
